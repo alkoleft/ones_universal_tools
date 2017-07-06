@@ -66,16 +66,38 @@
 									</Button>
 								</ChildItems>
 							</ButtonGroup>
-							<Button name="ДеревоНастроекСохранитьНастройки" id="76">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.СохранитьНастройки</CommandName>
-								<ExtendedTooltip name="ДеревоНастроекСохранитьНастройкиРасширеннаяПодсказка" id="77"/>
-							</Button>
-							<Button name="ДеревоНастроекЗагрузитьНастройки" id="78">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ЗагрузитьНастройки</CommandName>
-								<ExtendedTooltip name="ДеревоНастроекЗагрузитьНастройкиРасширеннаяПодсказка" id="79"/>
-							</Button>
+							<Popup name="ДеревоНастроекГруппаФайл" id="130">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Файл</v8:content>
+									</v8:item>
+								</Title>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Дерево настроек группа файл</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="ДеревоНастроекГруппаФайлРасширеннаяПодсказка" id="131"/>
+								<ChildItems>
+									<Button name="ДеревоНастроекЗагрузитьНастройки" id="78">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Файл_ЗагрузитьНастройки</CommandName>
+										<ExtendedTooltip name="ДеревоНастроекЗагрузитьНастройкиРасширеннаяПодсказка" id="79"/>
+									</Button>
+									<Button name="ДеревоНастроекСохранитьНастройки" id="76">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Файл_СохранитьНастройки</CommandName>
+										<ExtendedTooltip name="ДеревоНастроекСохранитьНастройкиРасширеннаяПодсказка" id="77"/>
+									</Button>
+									<Button name="ДеревоНастроекФайл_СохранитьНастройкиКак" id="132">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Файл_СохранитьНастройкиКак</CommandName>
+										<ExtendedTooltip name="ДеревоНастроекФайл_СохранитьНастройкиКакРасширеннаяПодсказка" id="133"/>
+									</Button>
+								</ChildItems>
+							</Popup>
 						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="ДеревоНастроекРасширеннаяПодсказка" id="18"/>
@@ -105,6 +127,7 @@
 					</SearchControlAddition>
 					<Events>
 						<Event name="OnActivateRow">ДеревоНастроекПриАктивизацииСтроки</Event>
+						<Event name="OnChange">СохраняемыеДанныеПриИзменении</Event>
 					</Events>
 					<ChildItems>
 						<InputField name="ДеревоНастроекЗапрос" id="88">
@@ -250,35 +273,6 @@
 						</InputField>
 					</ChildItems>
 				</Table>
-				<UsualGroup name="Группа2" id="128">
-					<Group>Horizontal</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="129"/>
-					<ChildItems>
-						<CommandBar name="Группа1" id="45">
-							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="46"/>
-							<ChildItems>
-								<Button name="Выполнить" id="47">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.Выполнить</CommandName>
-									<ExtendedTooltip name="ВыполнитьРасширеннаяПодсказка" id="48"/>
-								</Button>
-								<Button name="ОткрытьКонсольЗапроса" id="52">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.Command.ОткрытьКонструкторЗапроса</CommandName>
-									<ExtendedTooltip name="ОткрытьКонсольЗапросаРасширеннаяПодсказка" id="53"/>
-								</Button>
-							</ChildItems>
-						</CommandBar>
-						<CheckBoxField name="ВыполнятьНаКлиенте" id="125">
-							<DataPath>ВыполнятьНаКлиенте</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ВыполнятьНаКлиентеКонтекстноеМеню" id="126"/>
-							<ExtendedTooltip name="ВыполнятьНаКлиентеРасширеннаяПодсказка" id="127"/>
-						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
 				<Pages name="ГруппаТексты" id="1">
 					<Title>
 						<v8:item>
@@ -299,7 +293,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа запрос</v8:content>
+									<v8:content>Запрос</v8:content>
 								</v8:item>
 								<v8:item>
 									<v8:lang>en</v8:lang>
@@ -312,14 +306,37 @@
 									<v8:content>Группа запрос</v8:content>
 								</v8:item>
 							</ToolTip>
+							<Shortcut>Alt+Q</Shortcut>
+							<Picture>
+								<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
 							<ExtendedTooltip name="ГруппаЗапросРасширеннаяПодсказка" id="4"/>
 							<ChildItems>
+								<CommandBar name="Группа1" id="45">
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="46"/>
+									<ChildItems>
+										<Button name="Выполнить" id="47">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Выполнить</CommandName>
+											<ExtendedTooltip name="ВыполнитьРасширеннаяПодсказка" id="48"/>
+										</Button>
+										<Button name="ОткрытьКонсольЗапроса" id="52">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ОткрытьКонструкторЗапроса</CommandName>
+											<ExtendedTooltip name="ОткрытьКонсольЗапросаРасширеннаяПодсказка" id="53"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
 								<TextDocumentField name="ТекстЗапроса" id="7">
 									<DataPath>Items.ДеревоНастроек.CurrentData.ТекстЗапроса</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<Height>7</Height>
 									<ContextMenu name="ТекстЗапросаКонтекстноеМеню" id="8"/>
 									<ExtendedTooltip name="ТекстЗапросаРасширеннаяПодсказка" id="9"/>
+									<Events>
+										<Event name="OnChange">СохраняемыеДанныеПриИзменении</Event>
+									</Events>
 								</TextDocumentField>
 							</ChildItems>
 						</Page>
@@ -327,7 +344,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа скрипт</v8:content>
+									<v8:content>Скрипт</v8:content>
 								</v8:item>
 								<v8:item>
 									<v8:lang>en</v8:lang>
@@ -340,14 +357,41 @@
 									<v8:content>Группа скрипт</v8:content>
 								</v8:item>
 							</ToolTip>
+							<Shortcut>Alt+F</Shortcut>
+							<Picture>
+								<xr:Ref>StdPicture.CustomExpression</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
 							<ExtendedTooltip name="ГруппаСкриптРасширеннаяПодсказка" id="6"/>
 							<ChildItems>
+								<UsualGroup name="Группа2" id="128">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="129"/>
+									<ChildItems>
+										<Button name="Выполнить1" id="134">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.Выполнить</CommandName>
+											<ExtendedTooltip name="Выполнить1РасширеннаяПодсказка" id="135"/>
+										</Button>
+										<CheckBoxField name="ВыполнятьНаКлиенте" id="125">
+											<DataPath>ВыполнятьНаКлиенте</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ВыполнятьНаКлиентеКонтекстноеМеню" id="126"/>
+											<ExtendedTooltip name="ВыполнятьНаКлиентеРасширеннаяПодсказка" id="127"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
 								<TextDocumentField name="ТекстСкрипта" id="10">
 									<DataPath>Items.ДеревоНастроек.CurrentData.ТекстАлгоритма</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<Height>7</Height>
 									<ContextMenu name="ТекстСкриптаКонтекстноеМеню" id="11"/>
 									<ExtendedTooltip name="ТекстСкриптаРасширеннаяПодсказка" id="12"/>
+									<Events>
+										<Event name="OnChange">СохраняемыеДанныеПриИзменении</Event>
+									</Events>
 								</TextDocumentField>
 							</ChildItems>
 						</Page>
@@ -1080,7 +1124,7 @@
 			</Picture>
 			<Action>ОткрытьКонструкторЗапроса</Action>
 		</Command>
-		<Command name="СохранитьНастройки" id="3">
+		<Command name="Файл_СохранитьНастройки" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1090,7 +1134,47 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить настройки</v8:content>
+					<v8:content>Файл сохранить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+Shift+S</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СохранитьНастройки</Action>
+		</Command>
+		<Command name="Файл_ЗагрузитьНастройки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Файл загрузить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+Shift+O</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.OpenFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗагрузитьНастройки</Action>
+		</Command>
+		<Command name="Файл_СохранитьНастройкиКак" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки как ...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Файл сохранить настройки как</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -1098,25 +1182,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СохранитьНастройки</Action>
-		</Command>
-		<Command name="ЗагрузитьНастройки" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить настройки</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить настройки</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.OpenFile</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ЗагрузитьНастройки</Action>
 		</Command>
 	</Commands>
 </Form>
