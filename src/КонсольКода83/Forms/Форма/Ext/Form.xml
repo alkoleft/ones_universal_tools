@@ -225,8 +225,12 @@
 									<DataPath>Служебные_ОписаниеТекущегоЗначения</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<TitleLocation>None</TitleLocation>
+									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="Служебные_ОписаниеТекущегоЗначенияКонтекстноеМеню" id="149"/>
 									<ExtendedTooltip name="Служебные_ОписаниеТекущегоЗначенияРасширеннаяПодсказка" id="150"/>
+									<Events>
+										<Event name="Click">Служебные_ОписаниеТекущегоЗначенияНажатие</Event>
+									</Events>
 								</LabelField>
 								<LabelField name="Служебные_ОписаниеРезультат" id="151">
 									<DataPath>Служебные_ОписаниеРезультат</DataPath>
