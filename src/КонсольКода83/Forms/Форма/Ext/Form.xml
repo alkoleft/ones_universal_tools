@@ -185,6 +185,12 @@
 						</LabelField>
 					</ChildItems>
 				</UsualGroup>
+				<CommandBar name="Группа8" id="285">
+					<Width>5</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="286"/>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Группа3" id="154">
