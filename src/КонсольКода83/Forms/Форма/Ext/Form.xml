@@ -378,85 +378,210 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="157"/>
 			<ChildItems>
-				<Table name="ВыбраннаяНастройка_Параметры" id="93">
-					<Representation>List</Representation>
-					<Width>25</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<VerticalLines>false</VerticalLines>
-					<AutoInsertNewRow>true</AutoInsertNewRow>
-					<EnableStartDrag>true</EnableStartDrag>
-					<EnableDrag>true</EnableDrag>
-					<DataPath>ВыбраннаяНастройка_Параметры</DataPath>
-					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="ВыбраннаяНастройка_ПараметрыКонтекстноеМеню" id="94"/>
-					<AutoCommandBar name="ВыбраннаяНастройка_ПараметрыКоманднаяПанель" id="95">
-						<Autofill>false</Autofill>
-						<ChildItems>
-							<Button name="ДеревоНастроекПараметрыЗапросаДобавить" id="121">
-								<Type>CommandBarButton</Type>
-								<Representation>Picture</Representation>
-								<OnlyInAllActions>true</OnlyInAllActions>
-								<CommandName>Form.Item.ВыбраннаяНастройка_Параметры.StandardCommand.Add</CommandName>
-								<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаДобавитьРасширеннаяПодсказка" id="122"/>
-							</Button>
-							<Button name="ДеревоНастроекПараметрыЗапросаУдалить" id="123">
-								<Type>CommandBarButton</Type>
-								<Representation>Picture</Representation>
-								<OnlyInAllActions>true</OnlyInAllActions>
-								<CommandName>Form.Item.ВыбраннаяНастройка_Параметры.StandardCommand.Delete</CommandName>
-								<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаУдалитьРасширеннаяПодсказка" id="124"/>
-							</Button>
-							<Button name="ДеревоНастроекПараметрыЗапросаПараметры_Заполнить" id="136">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.Параметры_Заполнить</CommandName>
-								<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаПараметры_ЗаполнитьРасширеннаяПодсказка" id="137"/>
-							</Button>
-						</ChildItems>
-					</AutoCommandBar>
-					<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыРасширеннаяПодсказка" id="96"/>
-					<SearchStringAddition name="ВыбраннаяНастройка_ПараметрыСтрокаПоиска" id="97">
-						<AdditionSource>
-							<Item>ВыбраннаяНастройка_Параметры</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ВыбраннаяНастройка_ПараметрыСтрокаПоискаКонтекстноеМеню" id="100"/>
-						<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыСтрокаПоискаРасширеннаяПодсказка" id="101"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="ВыбраннаяНастройка_ПараметрыСостояниеПросмотра" id="102">
-						<AdditionSource>
-							<Item>ВыбраннаяНастройка_Параметры</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ВыбраннаяНастройка_ПараметрыСостояниеПросмотраКонтекстноеМеню" id="105"/>
-						<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыСостояниеПросмотраРасширеннаяПодсказка" id="106"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="ВыбраннаяНастройка_ПараметрыУправлениеПоиском" id="107">
-						<AdditionSource>
-							<Item>ВыбраннаяНастройка_Параметры</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="ВыбраннаяНастройка_ПараметрыУправлениеПоискомКонтекстноеМеню" id="110"/>
-						<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыУправлениеПоискомРасширеннаяПодсказка" id="111"/>
-					</SearchControlAddition>
-					<Events>
-						<Event name="OnActivateRow">ДеревоНастроекПараметрыЗапросаПриАктивизацииСтроки</Event>
-					</Events>
+				<Pages name="ГруппаСтранницыЗапрос" id="257">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа странницы запрос</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа странницы запрос</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСтранницыЗапросРасширеннаяПодсказка" id="258"/>
 					<ChildItems>
-						<InputField name="ДеревоНастроекПараметрыЗапросаИмяПараметра" id="195">
-							<DataPath>ВыбраннаяНастройка_Параметры.ИмяПараметра</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="ДеревоНастроекПараметрыЗапросаИмяПараметраКонтекстноеМеню" id="196"/>
-							<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаИмяПараметраРасширеннаяПодсказка" id="197"/>
-						</InputField>
-						<InputField name="ДеревоНастроекПараметрыЗапросаЗначениеПараметра" id="198">
-							<DataPath>ВыбраннаяНастройка_Параметры.ЗначениеПараметра</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="ДеревоНастроекПараметрыЗапросаЗначениеПараметраКонтекстноеМеню" id="199"/>
-							<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаЗначениеПараметраРасширеннаяПодсказка" id="200"/>
-						</InputField>
+						<Page name="ГруппаПараметры" id="259">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметры</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа параметры</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаПараметрыРасширеннаяПодсказка" id="260"/>
+							<ChildItems>
+								<Table name="ВыбраннаяНастройка_Параметры" id="93">
+									<Representation>List</Representation>
+									<Width>25</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<VerticalLines>false</VerticalLines>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ВыбраннаяНастройка_Параметры</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ВыбраннаяНастройка_ПараметрыКонтекстноеМеню" id="94"/>
+									<AutoCommandBar name="ВыбраннаяНастройка_ПараметрыКоманднаяПанель" id="95">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="ДеревоНастроекПараметрыЗапросаДобавить" id="121">
+												<Type>CommandBarButton</Type>
+												<Representation>Picture</Representation>
+												<OnlyInAllActions>true</OnlyInAllActions>
+												<CommandName>Form.Item.ВыбраннаяНастройка_Параметры.StandardCommand.Add</CommandName>
+												<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаДобавитьРасширеннаяПодсказка" id="122"/>
+											</Button>
+											<Button name="ДеревоНастроекПараметрыЗапросаУдалить" id="123">
+												<Type>CommandBarButton</Type>
+												<Representation>Picture</Representation>
+												<OnlyInAllActions>true</OnlyInAllActions>
+												<CommandName>Form.Item.ВыбраннаяНастройка_Параметры.StandardCommand.Delete</CommandName>
+												<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаУдалитьРасширеннаяПодсказка" id="124"/>
+											</Button>
+											<Button name="ДеревоНастроекПараметрыЗапросаПараметры_Заполнить" id="136">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.Параметры_Заполнить</CommandName>
+												<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаПараметры_ЗаполнитьРасширеннаяПодсказка" id="137"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыРасширеннаяПодсказка" id="96"/>
+									<SearchStringAddition name="ВыбраннаяНастройка_ПараметрыСтрокаПоиска" id="97">
+										<AdditionSource>
+											<Item>ВыбраннаяНастройка_Параметры</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВыбраннаяНастройка_ПараметрыСтрокаПоискаКонтекстноеМеню" id="100"/>
+										<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыСтрокаПоискаРасширеннаяПодсказка" id="101"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ВыбраннаяНастройка_ПараметрыСостояниеПросмотра" id="102">
+										<AdditionSource>
+											<Item>ВыбраннаяНастройка_Параметры</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ВыбраннаяНастройка_ПараметрыСостояниеПросмотраКонтекстноеМеню" id="105"/>
+										<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыСостояниеПросмотраРасширеннаяПодсказка" id="106"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ВыбраннаяНастройка_ПараметрыУправлениеПоиском" id="107">
+										<AdditionSource>
+											<Item>ВыбраннаяНастройка_Параметры</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ВыбраннаяНастройка_ПараметрыУправлениеПоискомКонтекстноеМеню" id="110"/>
+										<ExtendedTooltip name="ВыбраннаяНастройка_ПараметрыУправлениеПоискомРасширеннаяПодсказка" id="111"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnActivateRow">ДеревоНастроекПараметрыЗапросаПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ДеревоНастроекПараметрыЗапросаИмяПараметра" id="195">
+											<DataPath>ВыбраннаяНастройка_Параметры.ИмяПараметра</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДеревоНастроекПараметрыЗапросаИмяПараметраКонтекстноеМеню" id="196"/>
+											<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаИмяПараметраРасширеннаяПодсказка" id="197"/>
+										</InputField>
+										<InputField name="ДеревоНастроекПараметрыЗапросаЗначениеПараметра" id="198">
+											<DataPath>ВыбраннаяНастройка_Параметры.ЗначениеПараметра</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДеревоНастроекПараметрыЗапросаЗначениеПараметраКонтекстноеМеню" id="199"/>
+											<ExtendedTooltip name="ДеревоНастроекПараметрыЗапросаЗначениеПараметраРасширеннаяПодсказка" id="200"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаВременныеТаблицы" id="261">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Временные таблицы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа временные таблицы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаВременныеТаблицыРасширеннаяПодсказка" id="262"/>
+							<ChildItems>
+								<Table name="Результат_ВременныеТаблицы" id="263">
+									<Representation>List</Representation>
+									<ReadOnly>true</ReadOnly>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Результат_ВременныеТаблицы</DataPath>
+									<CommandSet>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>SortListAsc</ExcludedCommand>
+										<ExcludedCommand>MoveUp</ExcludedCommand>
+										<ExcludedCommand>CancelSearch</ExcludedCommand>
+										<ExcludedCommand>OutputList</ExcludedCommand>
+										<ExcludedCommand>SelectAll</ExcludedCommand>
+										<ExcludedCommand>SortListDesc</ExcludedCommand>
+										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>Find</ExcludedCommand>
+										<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+										<ExcludedCommand>MoveDown</ExcludedCommand>
+									</CommandSet>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="Результат_ВременныеТаблицыКонтекстноеМеню" id="264"/>
+									<AutoCommandBar name="Результат_ВременныеТаблицыКоманднаяПанель" id="265"/>
+									<ExtendedTooltip name="Результат_ВременныеТаблицыРасширеннаяПодсказка" id="266"/>
+									<SearchStringAddition name="Результат_ВременныеТаблицыСтрокаПоиска" id="267">
+										<AdditionSource>
+											<Item>Результат_ВременныеТаблицы</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="Результат_ВременныеТаблицыСтрокаПоискаКонтекстноеМеню" id="268"/>
+										<ExtendedTooltip name="Результат_ВременныеТаблицыСтрокаПоискаРасширеннаяПодсказка" id="269"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="Результат_ВременныеТаблицыСостояниеПросмотра" id="270">
+										<AdditionSource>
+											<Item>Результат_ВременныеТаблицы</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="Результат_ВременныеТаблицыСостояниеПросмотраКонтекстноеМеню" id="271"/>
+										<ExtendedTooltip name="Результат_ВременныеТаблицыСостояниеПросмотраРасширеннаяПодсказка" id="272"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="Результат_ВременныеТаблицыУправлениеПоиском" id="273">
+										<AdditionSource>
+											<Item>Результат_ВременныеТаблицы</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="Результат_ВременныеТаблицыУправлениеПоискомКонтекстноеМеню" id="274"/>
+										<ExtendedTooltip name="Результат_ВременныеТаблицыУправлениеПоискомРасширеннаяПодсказка" id="275"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="Результат_ВременныеТаблицыИмя" id="276">
+											<DataPath>Результат_ВременныеТаблицы.Имя</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Результат_ВременныеТаблицыИмяКонтекстноеМеню" id="277"/>
+											<ExtendedTooltip name="Результат_ВременныеТаблицыИмяРасширеннаяПодсказка" id="278"/>
+										</InputField>
+										<InputField name="Результат_ВременныеТаблицыКоличествоСтроки" id="279">
+											<DataPath>Результат_ВременныеТаблицы.Количество</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Результат_ВременныеТаблицыКоличествоСтрокиКонтекстноеМеню" id="280"/>
+											<ExtendedTooltip name="Результат_ВременныеТаблицыКоличествоСтрокиРасширеннаяПодсказка" id="281"/>
+										</InputField>
+										<InputField name="Результат_ВременныеТаблицыВремяФормирования" id="282">
+											<DataPath>Результат_ВременныеТаблицы.Время</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Результат_ВременныеТаблицыВремяФормированияКонтекстноеМеню" id="283"/>
+											<ExtendedTooltip name="Результат_ВременныеТаблицыВремяФормированияРасширеннаяПодсказка" id="284"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
 					</ChildItems>
-				</Table>
+				</Pages>
 				<UsualGroup name="ГруппаРедактор" id="227">
 					<Title>
 						<v8:item>
@@ -2168,6 +2293,81 @@
 					</Title>
 					<Type>
 						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Результат_ВременныеТаблицы" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Временные таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Имя" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Количество" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Время" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время формирования(мс)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Продолжительность" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Продолжительность</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
 					</Type>
 				</Column>
 			</Columns>
