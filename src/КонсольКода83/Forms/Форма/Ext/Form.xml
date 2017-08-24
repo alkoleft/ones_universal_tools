@@ -186,10 +186,18 @@
 					</ChildItems>
 				</UsualGroup>
 				<CommandBar name="Группа8" id="285">
-					<Width>5</Width>
+					<Width>9</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<CommandSource>Form</CommandSource>
 					<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="286"/>
+					<ChildItems>
+						<Button name="ФормаПроверитьОбновление" id="287">
+							<Type>CommandBarButton</Type>
+							<OnlyInAllActions>true</OnlyInAllActions>
+							<CommandName>Form.Command.ПроверитьОбновление</CommandName>
+							<ExtendedTooltip name="ФормаПроверитьОбновлениеРасширеннаяПодсказка" id="288"/>
+						</Button>
+					</ChildItems>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
@@ -2720,6 +2728,26 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ПереключитьВидимость</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="ПроверитьОбновление" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить обновление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить обновление</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AddToFavorites</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПроверитьОбновлениеКлиент</Action>
 			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
