@@ -1,32 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
-	<ExternalDataProcessor uuid="524823eb-833c-452a-bde5-27cbb52e8982">
-		<InternalInfo>
-			<xr:ContainedObject>
-				<xr:ClassId>c3831ec8-d8d5-4f93-8a22-f9bfae07327f</xr:ClassId>
-				<xr:ObjectId>3f0ff3c8-9599-45cf-90f4-a25e0a5ef851</xr:ObjectId>
-			</xr:ContainedObject>
-			<xr:GeneratedType name="ExternalDataProcessorObject.Test" category="Object">
-				<xr:TypeId>01263270-24a6-4b6d-9e54-c7db7ba6b7e0</xr:TypeId>
-				<xr:ValueId>a68d066c-cf33-4031-b7d8-7c3e8a131a04</xr:ValueId>
-			</xr:GeneratedType>
-		</InternalInfo>
+	<Template uuid="bd9d35ab-8ba2-49e5-b35f-27d95e23e2cb">
 		<Properties>
-			<Name>Test</Name>
+			<Name>Настройки1</Name>
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Test</v8:content>
+					<v8:content>Настройки1</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
-			<DefaultForm>ExternalDataProcessor.Test.Form.Форма</DefaultForm>
-			<AuxiliaryForm/>
+			<TemplateType>TextDocument</TemplateType>
 		</Properties>
-		<ChildObjects>
-			<Form>Форма</Form>
-			<Template>Настройки1</Template>
-			<Template>Настройки2</Template>
-		</ChildObjects>
-	</ExternalDataProcessor>
+	</Template>
 </MetaDataObject>
