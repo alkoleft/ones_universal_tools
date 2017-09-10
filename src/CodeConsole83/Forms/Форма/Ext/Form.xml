@@ -119,6 +119,16 @@
 							</ToolTip>
 							<ExtendedTooltip name="ДеревоНастроекГруппаФайлРасширеннаяПодсказка" id="206"/>
 							<ChildItems>
+								<ButtonGroup name="Группа9" id="291">
+									<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="292"/>
+									<ChildItems>
+										<Button name="Файл_НоваяНастройка" id="289">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Файл_НоваяНастройка</CommandName>
+											<ExtendedTooltip name="Файл_НоваяНастройкаРасширеннаяПодсказка" id="290"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
 								<Button name="ДеревоНастроекЗагрузитьНастройки" id="207">
 									<Type>CommandBarButton</Type>
 									<CommandName>Form.Command.Файл_ЗагрузитьНастройки</CommandName>
@@ -2749,6 +2759,25 @@
 			</Picture>
 			<Action>ПроверитьОбновлениеКлиент</Action>
 			<Representation>Picture</Representation>
+		</Command>
+		<Command name="Файл_НоваяНастройка" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новая настройка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Файл новая настройка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Document</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НоваяНастройка</Action>
 		</Command>
 	</Commands>
 </Form>
