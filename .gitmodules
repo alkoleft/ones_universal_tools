@@ -1,0 +1,3 @@
+[submodule "precommit1c"]
+	path = precommit1c
+	url = git@github.com:xDrivenDevelopment/precommit1c.git
