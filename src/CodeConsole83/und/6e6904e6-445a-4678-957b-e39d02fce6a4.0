@@ -3991,7 +3991,7 @@ wskB5WADKH5GA/h1AgE+zQQBBZoZGAC8krC4AWNp4gAAAABJRU5ErkJggg==}
 	
 	Параметры.Вставить(""owner"", ""alkoleft"");
 	Параметры.Вставить(""repo"", ""ones_universal_tools"");
-	Параметры.Вставить(""version"", ""v1.0.3"");
+	Параметры.Вставить(""version"", ""v1.0.4"");
 	
 	Возврат Параметры;
 	
