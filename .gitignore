@@ -1,1 +1,3 @@
-*.epf
+test_reports/report-allure-testsuite.xml
+build/
+
