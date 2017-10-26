@@ -2559,7 +2559,7 @@
 },
 {2,
 {16},
-{4}
+{6}
 },
 {0},1,0,2,0,2,
 {1,0},
@@ -6490,6 +6490,8 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 		
 	КонецЦикла;
 	
+	ЗаполнитьПредставлениеТипаДанных();
+	
 	ПриИзмененииДанныхНастройки();
 	
 	ХранилищеНастроекПоместить(ПараметрыТекущейНастройки);
@@ -6529,9 +6531,19 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 		Если ТипЗначения <> Неопределено Тогда 
 			Стр.ТипПараметра = ТипЗначения;
 		КонецЕсли;
-		
-		Если Значение = Неопределено Тогда 
-			Стр.ЗначениеПараметра = ТипЗначения.ПривестиЗначение(Стр.ЗначениеПараметра);
+				
+		Если Значение = Неопределено Тогда
+			
+			Если ТипЗнч(Стр.ЗначениеПараметра) = Тип(""СписокЗначений"") Тогда
+				
+				Стр.ЗначениеПараметра.ТипЗначения = Стр.ТипПараметра;
+				
+			Иначе
+				
+				Стр.ЗначениеПараметра = ТипЗначения.ПривестиЗначение(Стр.ЗначениеПараметра);
+				
+			КонецЕсли;
+			
 		Иначе
 			Стр.ЗначениеПараметра = Значение;
 		КонецЕсли;
@@ -6547,6 +6559,17 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 		
 		УстановитьЗначениеПараметра(Эл.Ключ, Эл.Значение);
 		
+	КонецЦикла;
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура ЗаполнитьПредставлениеТипаДанных()
+	
+	Для Каждого Стр Из ВыбраннаяНастройка_Параметры Цикл 
+		
+		Стр.ПредставлениеТипаДанных = ?(ЭтоАдресВременногоХранилища(Стр.АдресДанных), ""Таблица значений"", ТипЗнч(Стр.ЗначениеПараметра));
+		Стр.ИспользоватьСписок = ТипЗнч(Стр.ЗначениеПараметра) = Тип(""СписокЗначений"");
 	КонецЦикла;
 	
 КонецПроцедуры
@@ -6591,6 +6614,8 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 		ЗаполнитьЗначенияСвойств(ВыбраннаяНастройка_Параметры.Добавить(), Параметр);
 
 	КонецЦикла;
+	
+	ЗаполнитьПредставлениеТипаДанных();
 	
 	Если ЭтоАлгоритм(ПараметрыНастройки) Тогда 
 		
@@ -6995,7 +7020,7 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 	УстановитьЗаголовок();
 	
 	Рандом = Новый ГенераторСлучайныхЧисел(ТекущаяУниверсальнаяДатаВМиллисекундах() % 2147483647);
-	Если Рандом.СлучайноеЧисло() % 7 = 1 Тогда 
+	Если Рандом.СлучайноеЧисло() % 3 = 1 Тогда 
 		
 		ПодключитьОбработчикОжидания(""ПроверитьНаличиеОбновление"", 10, Истина);
 		
@@ -7302,7 +7327,7 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 		Возврат;
 	КонецЕсли;
 	
-	Если Элемент.ТекущиеДанные.ИспользоватьСписок Тогда 
+	Если ТипЗнч(Элемент.ТекущиеДанные.ЗначениеПараметра) = Тип(""СписокЗначений"") Тогда 
 		
 		Элементы.ВыбраннаяНастройка_ПараметрыЗначение.ОграничениеТипа = Новый ОписаниеТипов(""СписокЗначений"");
 		
@@ -7321,15 +7346,16 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 		
 		Данные = Элемент.ТекущиеДанные;
 		
-		Если Данные = Неопределено Тогда 
+		Если Данные = Неопределено ИЛИ ЭтоАдресВременногоХранилища(Данные.АдресДанных) Тогда 
 			
 			Возврат;
 			
 		КонецЕсли;
-	
-		Данные.ИспользоватьСписок = НЕ Данные.ИспользоватьСписок;
 		
-		Если Элемент.ТекущиеДанные.ИспользоватьСписок Тогда 
+		ЭтоСписок = ТипЗнч(Данные.ЗначениеПараметра) = Тип(""СписокЗначений"");
+		ЭтоСписок = НЕ ЭтоСписок;
+		
+		Если ЭтоСписок Тогда 
 			
 			Значение = Новый СписокЗначений;
 			Значение.ТипЗначения = Данные.ТипПараметра;
@@ -7349,6 +7375,8 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 		ВыбраннаяНастройка_ПараметрыПриАктивизацииСтроки(Элемент);
 		
 		ПриИзмененииДанныхНастройки();
+		
+		ЗаполнитьПредставлениеТипаДанных();
 		
 	КонецЕсли;
 	
@@ -8419,7 +8447,7 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 {"B",1},0}
 },
 {0,0},
-{0,0},0,0,0,5,
+{0,0},0,0,0,6,
 {5,1,0,"ИмяПараметра",
 {1,1,
 {"ru","Имя параметра"}
@@ -8466,12 +8494,12 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 {"B",1},0}
 },
 {0,0},0},
-{5,4,0,"ИспользоватьСписок",
+{5,5,0,"АдресДанных",
 {1,1,
-{"ru","Использовать список"}
+{"ru","Адрес данных"}
 },
 {"Pattern",
-{"B"}
+{"S"}
 },
 {0,
 {0,
@@ -8482,12 +8510,28 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 {"B",1},0}
 },
 {0,0},0},
-{5,5,0,"АдресДанных",
+{5,4,0,"ПредставлениеТипаДанных",
 {1,1,
-{"ru","Адрес данных"}
+{"ru","Представление типа данных"}
 },
 {"Pattern",
 {"S"}
+},
+{0,
+{0,
+{"B",1},0}
+},
+{0,
+{0,
+{"B",1},0}
+},
+{0,0},0},
+{5,6,0,"ИспользоватьСписок",
+{1,1,
+{"ru","Использовать список"}
+},
+{"Pattern",
+{"B"}
 },
 {0,
 {0,
@@ -9255,7 +9299,7 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 {2,
 {13},
 {3}
-},10,
+},9,
 {5,2,0,"ИмяПараметра",
 {1,1,
 {"ru","Имя"}
@@ -9373,22 +9417,6 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 },
 {"Pattern",
 {"#",f5c65050-3bbb-11d5-b988-0050bae0a95d}
-},
-{0,
-{0,
-{"B",1},0}
-},
-{0,
-{0,
-{"B",1},0}
-},
-{0,0},0},
-{5,11,0,"ИспользоватьСписок",
-{1,1,
-{"ru","Использовать список"}
-},
-{"Pattern",
-{"B"}
 },
 {0,
 {0,
@@ -9595,7 +9623,7 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 {2,
 {14},
 {4}
-},5,
+},4,
 {5,2,0,"ИмяПараметра",
 {1,1,
 {"ru","Имя"}
@@ -9642,22 +9670,6 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 {"B",1},0}
 },
 {0,0},0},
-{5,4,0,"ИспользоватьСписок",
-{1,1,
-{"ru","Использовать список"}
-},
-{"Pattern",
-{"B"}
-},
-{0,
-{0,
-{"B",1},0}
-},
-{0,
-{0,
-{"B",1},0}
-},
-{0,0},0},
 {5,5,0,"АдресДанных",
 {1,1,
 {"ru","Адрес данных"}
@@ -9674,10 +9686,10 @@ KHNXtcHDfSYl3GbhqBChevMpJAx+ImE8LSEAOw==}
 {"B",1},0}
 },
 {0,0},0}
-},1,"ВыбраннаяНастройка_Параметры.АдресДанныхТЗ","ВыбраннаяНастройка_Параметры.АдресДанныхТЗ",
+},1,"ВыбраннаяНастройка_Параметры.ПредставлениеТипаДанных","ВыбраннаяНастройка_Параметры.ПредставлениеТипаДанных",
 {2,
 {16},
-{5}
+{4}
 },
 {1,
 {16}
@@ -9700,23 +9712,50 @@ vtC50LrQsF/Qn9Cw0YDQsNC80LXRgtGA0YvQl9C90LDRh9C10L3QuNC1PC9maWVs
 ZD4NCgkJCQk8L2l0ZW0+DQoJCQk8L3NlbGVjdGlvbj4NCgkJCTxmaWx0ZXI+DQoJ
 CQkJPGl0ZW0geHNpOnR5cGU9IkZpbHRlckl0ZW1Db21wYXJpc29uIj4NCgkJCQkJ
 PGxlZnQgeHNpOnR5cGU9ImRjc2NvcjpGaWVsZCI+0JLRi9Cx0YDQsNC90L3QsNGP
-0J3QsNGB0YLRgNC+0LnQutCwX9Cf0LDRgNCw0LzQtdGC0YDRiy7QkNC00YDQtdGB
-0JTQsNC90L3Ri9GF0KLQlzwvbGVmdD4NCgkJCQkJPGNvbXBhcmlzb25UeXBlPkZp
-bGxlZDwvY29tcGFyaXNvblR5cGU+DQoJCQkJPC9pdGVtPg0KCQkJPC9maWx0ZXI+
-DQoJCQk8YXBwZWFyYW5jZT4NCgkJCQk8ZGNzY29yOml0ZW0geHNpOnR5cGU9IlNl
-dHRpbmdzUGFyYW1ldGVyVmFsdWUiPg0KCQkJCQk8ZGNzY29yOnBhcmFtZXRlcj7Q
-ptCy0LXRgtCi0LXQutGB0YLQsDwvZGNzY29yOnBhcmFtZXRlcj4NCgkJCQkJPGRj
-c2Nvcjp2YWx1ZSB4c2k6dHlwZT0idjh1aTpDb2xvciI+IzAwMDBGRjwvZGNzY29y
-OnZhbHVlPg0KCQkJCTwvZGNzY29yOml0ZW0+DQoJCQkJPGRjc2NvcjppdGVtIHhz
-aTp0eXBlPSJTZXR0aW5nc1BhcmFtZXRlclZhbHVlIj4NCgkJCQkJPGRjc2Nvcjpw
-YXJhbWV0ZXI+0KLQtdC60YHRgjwvZGNzY29yOnBhcmFtZXRlcj4NCgkJCQkJPGRj
-c2Nvcjp2YWx1ZSB4c2k6dHlwZT0idjg6TG9jYWxTdHJpbmdUeXBlIj4NCgkJCQkJ
-CTx2ODppdGVtPg0KCQkJCQkJCTx2ODpsYW5nPnJ1PC92ODpsYW5nPg0KCQkJCQkJ
-CTx2ODpjb250ZW50PiZsdDvQotCw0LHQu9C40YbQsCDQt9C90LDRh9C10L3QuNC5
-Jmd0Ozwvdjg6Y29udGVudD4NCgkJCQkJCTwvdjg6aXRlbT4NCgkJCQkJPC9kY3Nj
-b3I6dmFsdWU+DQoJCQkJPC9kY3Njb3I6aXRlbT4NCgkJCTwvYXBwZWFyYW5jZT4N
-CgkJPC9pdGVtPg0KCTwvY29uZGl0aW9uYWxBcHBlYXJhbmNlPg0KCTxvdXRwdXRQ
-YXJhbWV0ZXJzLz4NCjwvU2V0dGluZ3M+}
+0J3QsNGB0YLRgNC+0LnQutCwX9Cf0LDRgNCw0LzQtdGC0YDRiy7Qn9GA0LXQtNGB
+0YLQsNCy0LvQtdC90LjQtdCi0LjQv9Cw0JTQsNC90L3Ri9GFPC9sZWZ0Pg0KCQkJ
+CQk8Y29tcGFyaXNvblR5cGU+RXF1YWw8L2NvbXBhcmlzb25UeXBlPg0KCQkJCQk8
+cmlnaHQgeHNpOnR5cGU9InhzOnN0cmluZyI+0KLQsNCx0LvQuNGG0LAg0LfQvdCw
+0YfQtdC90LjQuTwvcmlnaHQ+DQoJCQkJPC9pdGVtPg0KCQkJPC9maWx0ZXI+DQoJ
+CQk8YXBwZWFyYW5jZT4NCgkJCQk8ZGNzY29yOml0ZW0geHNpOnR5cGU9IlNldHRp
+bmdzUGFyYW1ldGVyVmFsdWUiPg0KCQkJCQk8ZGNzY29yOnVzZT5mYWxzZTwvZGNz
+Y29yOnVzZT4NCgkJCQkJPGRjc2NvcjpwYXJhbWV0ZXI+0KbQstC10YLQotC10LrR
+gdGC0LA8L2Rjc2NvcjpwYXJhbWV0ZXI+DQoJCQkJCTxkY3Njb3I6dmFsdWUgeHNp
+OnR5cGU9InY4dWk6Q29sb3IiPiMwMDAwRkY8L2Rjc2Nvcjp2YWx1ZT4NCgkJCQk8
+L2Rjc2NvcjppdGVtPg0KCQkJCTxkY3Njb3I6aXRlbSB4c2k6dHlwZT0iU2V0dGlu
+Z3NQYXJhbWV0ZXJWYWx1ZSI+DQoJCQkJCTxkY3Njb3I6cGFyYW1ldGVyPtCi0LXQ
+utGB0YI8L2Rjc2NvcjpwYXJhbWV0ZXI+DQoJCQkJCTxkY3Njb3I6dmFsdWUgeHNp
+OnR5cGU9InY4OkxvY2FsU3RyaW5nVHlwZSI+DQoJCQkJCQk8djg6aXRlbT4NCgkJ
+CQkJCQk8djg6bGFuZz5ydTwvdjg6bGFuZz4NCgkJCQkJCQk8djg6Y29udGVudD4m
+bHQ70KLQsNCx0LvQuNGG0LAg0LfQvdCw0YfQtdC90LjQuSZndDs8L3Y4OmNvbnRl
+bnQ+DQoJCQkJCQk8L3Y4Oml0ZW0+DQoJCQkJCTwvZGNzY29yOnZhbHVlPg0KCQkJ
+CTwvZGNzY29yOml0ZW0+DQoJCQk8L2FwcGVhcmFuY2U+DQoJCTwvaXRlbT4NCgkJ
+PGl0ZW0+DQoJCQk8c2VsZWN0aW9uPg0KCQkJCTxpdGVtPg0KCQkJCQk8ZmllbGQ+
+0JLRi9Cx0YDQsNC90L3QsNGP0J3QsNGB0YLRgNC+0LnQutCwX9Cf0LDRgNCw0LzQ
+tdGC0YDRi9CX0L3QsNGH0LXQvdC40LU8L2ZpZWxkPg0KCQkJCTwvaXRlbT4NCgkJ
+CTwvc2VsZWN0aW9uPg0KCQkJPGZpbHRlcj4NCgkJCQk8aXRlbSB4c2k6dHlwZT0i
+RmlsdGVySXRlbUdyb3VwIj4NCgkJCQkJPGdyb3VwVHlwZT5Pckdyb3VwPC9ncm91
+cFR5cGU+DQoJCQkJCTxpdGVtIHhzaTp0eXBlPSJGaWx0ZXJJdGVtQ29tcGFyaXNv
+biI+DQoJCQkJCQk8bGVmdCB4c2k6dHlwZT0iZGNzY29yOkZpZWxkIj7QktGL0LHR
+gNCw0L3QvdCw0Y/QndCw0YHRgtGA0L7QudC60LBf0J/QsNGA0LDQvNC10YLRgNGL
+LtCf0YDQtdC00YHRgtCw0LLQu9C10L3QuNC10KLQuNC/0LDQlNCw0L3QvdGL0YU8
+L2xlZnQ+DQoJCQkJCQk8Y29tcGFyaXNvblR5cGU+RXF1YWw8L2NvbXBhcmlzb25U
+eXBlPg0KCQkJCQkJPHJpZ2h0IHhzaTp0eXBlPSJ4czpzdHJpbmciPtCh0L/QuNGB
+0L7QuiDQt9C90LDRh9C10L3QuNC5PC9yaWdodD4NCgkJCQkJPC9pdGVtPg0KCQkJ
+CQk8aXRlbSB4c2k6dHlwZT0iRmlsdGVySXRlbUNvbXBhcmlzb24iPg0KCQkJCQkJ
+PGxlZnQgeHNpOnR5cGU9ImRjc2NvcjpGaWVsZCI+0JLRi9Cx0YDQsNC90L3QsNGP
+0J3QsNGB0YLRgNC+0LnQutCwX9Cf0LDRgNCw0LzQtdGC0YDRiy7Qn9GA0LXQtNGB
+0YLQsNCy0LvQtdC90LjQtdCi0LjQv9Cw0JTQsNC90L3Ri9GFPC9sZWZ0Pg0KCQkJ
+CQkJPGNvbXBhcmlzb25UeXBlPkVxdWFsPC9jb21wYXJpc29uVHlwZT4NCgkJCQkJ
+CTxyaWdodCB4c2k6dHlwZT0ieHM6c3RyaW5nIj7QotCw0LHQu9C40YbQsCDQt9C9
+0LDRh9C10L3QuNC5PC9yaWdodD4NCgkJCQkJPC9pdGVtPg0KCQkJCTwvaXRlbT4N
+CgkJCTwvZmlsdGVyPg0KCQkJPGFwcGVhcmFuY2U+DQoJCQkJPGRjc2NvcjppdGVt
+IHhzaTp0eXBlPSJTZXR0aW5nc1BhcmFtZXRlclZhbHVlIj4NCgkJCQkJPGRjc2Nv
+cjpwYXJhbWV0ZXI+0KbQstC10YLQotC10LrRgdGC0LA8L2Rjc2NvcjpwYXJhbWV0
+ZXI+DQoJCQkJCTxkY3Njb3I6dmFsdWUgeHNpOnR5cGU9InY4dWk6Q29sb3IiPiMw
+MDAwRkY8L2Rjc2Nvcjp2YWx1ZT4NCgkJCQk8L2Rjc2NvcjppdGVtPg0KCQkJPC9h
+cHBlYXJhbmNlPg0KCQk8L2l0ZW0+DQoJPC9jb25kaXRpb25hbEFwcGVhcmFuY2U+
+DQoJPG91dHB1dFBhcmFtZXRlcnMvPg0KPC9TZXR0aW5ncz4=}
 },
 {0,0},
 {0,19,
